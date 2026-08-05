@@ -1,0 +1,21 @@
+{
+  "name": "conradmisz-agent-skills",
+  "owner": {
+    "name": "Conrad Miszczak"
+  },
+  "metadata": {
+    "description": "Agent skills for Claude Code",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "project-kickoff",
+      "description": "Interviews you about a new project idea and writes the agent context files (agentProjectDocs/ + CLAUDE.md)",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/project-kickoff"
+      ]
+    }
+  ]
+}
