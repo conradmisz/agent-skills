@@ -13,12 +13,22 @@ current project directory. The output is `agentProjectDocs/`
 (the filled context files) plus `CLAUDE.md` at the project
 root.
 
-**Canonical templates:** `templates/` in this skill's
-own directory. Read every file there first (including
-`templates/agentProjectDocs/specs/feature-template.md`
-and `templates/CLAUDE.md`). The templates are the source
-of truth for structure — never reconstruct them from
-memory.
+**Canonical templates:** `templates/<variant>/` in this
+skill's own directory. `templates/default/` is the
+general web-app set; sibling folders are domain variants
+(see `templates/README.md`). Pick the variant whose
+domain matches the idea; if none fits, start from
+`default` and tailor the placeholder examples to the
+domain (an RTL project gets RTL-flavoured architecture
+and code-standards slots, not web-app ones). Read every
+file of the chosen variant first (including
+`agentProjectDocs/specs/feature-template.md`,
+`agentProjectDocs/bugs/bug-template.md` and
+`CLAUDE.md`). The templates are the source of truth for
+structure — never reconstruct them from memory.
+
+**Trigger rule:** any new project that involves code of
+any kind starts with this skill, before scaffolding.
 
 ## When NOT to Use
 
@@ -59,6 +69,15 @@ memory.
      CLAUDE.md rules are the whole feature.
 6. **Report:** list files written, open questions, and
    the suggested first feature to spec out.
+7. **Offer to save the variant.** If the templates were
+   tailored for a domain that has no folder under
+   `templates/`, ask once: "Save this as a project-kickoff
+   template variant named `<variant>`?" If yes, write the
+   tailored templates (placeholders restored, project
+   specifics removed) to
+   `~/projects/agent-skills/skills/project-kickoff/templates/<variant>/`,
+   add a line to `templates/README.md`, commit, and push
+   to GitHub `conradmisz/agent-skills`. If no, do nothing.
 
 ## Interview Phases
 
